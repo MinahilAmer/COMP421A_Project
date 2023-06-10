@@ -14,9 +14,11 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                // Replace 'nodePath' with the correct path to the Node.js executable (node.exe)
-                def nodePath = 'C:\\Program Files\\nodejs\\node.exe'
-                sh "${nodePath} C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test"
+                // Define the path to the Node.js executable (node.exe)
+                def nodePath = "C:\\Program Files\\nodejs\\node.exe"
+
+                // Run the Snyk security scan command
+                bat "\"${nodePath}\" C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test"
             }
         }
     }
