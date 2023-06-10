@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Static Code Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube Server') {
+                withSonarQubeEnv('jk1') {
                     // Perform your static code analysis steps here
                     // Example: executing SonarScanner
                     sh 'sonar-scanner'
