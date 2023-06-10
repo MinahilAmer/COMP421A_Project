@@ -4,6 +4,7 @@ pipeline {
     environment {
         nodePath = 'C:\\Program Files\\nodejs\\node.exe'
         npmPath = 'C:\\Program Files\\nodejs\\npm.cmd'
+        snykScript = 'C:\\Program Files\\nodejs\\snyk.cmd'
     }
 
     stages {
@@ -19,8 +20,7 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                bat "\"${nodePath}\" \"${npmPath}\" install -g snyk"
-                bat "\"${nodePath}\" \"${npmPath}\" snyk test"
+                bat 'call "${snykScript}" test'
             }
         }
     }
