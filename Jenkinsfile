@@ -19,8 +19,8 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                bat "${env.nodePath} ${env.npmPath} install -g snyk"
-                bat "${env.nodePath} ${env.npmPath} snyk test"
+                bat "cmd /c ${env.nodePath} ${env.npmPath} install -g snyk"
+                bat "cmd /c ${env.nodePath} ${env.npmPath} snyk test"
             }
         }
     }
