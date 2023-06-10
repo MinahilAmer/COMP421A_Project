@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        nodePath = 'C:\\Program Files\\nodejs\\node.exe'
-        npmPath = 'C:\\Program Files\\nodejs\\npm.cmd'
-        snykScript = 'C:\\Program Files\\nodejs\\snyk.cmd'
-    }
-
     stages {
         stage('Static Code Analysis') {
             steps {
@@ -20,7 +14,7 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                bat "call ${snykScript} test"
+                bat 'call "C:\\Program Files\\nodejs\\snyk.cmd" test'
             }
         }
     }
