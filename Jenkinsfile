@@ -11,6 +11,12 @@ pipeline {
                 }
             }
         }
+        
+        stage('Synk Security Scanning') {
+            steps {
+                bat 'npx snyk test'
+            }
+        }
     }
 }
 
