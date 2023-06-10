@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         nodePath = '"C:\\Program Files\\nodejs\\node.exe"'
-        npmPath = '"C:\\Program Files\\nodejs\\npm.cmd"'
+        npmPath = '"C:\\Program Files\\nodejs\\npm"'
     }
 
     stages {
