@@ -12,13 +12,10 @@ pipeline {
             }
         }
         
-        stage('Synk Security Scan') {
+        stage('Snyk Security Scan') {
             steps {
-                bat 'snyk test'
+                bat 'C:\Users\minah\AppData\Roaming\npm\\snyk.cmd test'
             }
         }
     }
 }
-
-
-
