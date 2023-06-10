@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        NODE_PATH = 'C:/Program Files/nodejs/node.exe'
-    }
-
     stages {
         stage('Static Code Analysis') {
             steps {
@@ -18,7 +14,7 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                bat "\"%NODE_PATH%\" C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test"
+                bat 'npx snyk test'
             }
         }
     }
