@@ -11,10 +11,10 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Snyk Security Scan') {
             steps {
-                bat '"C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd" test'
+                bat 'call "C:\\Program Files\\nodejs\\snyk.cmd" test'
             }
         }
     }
