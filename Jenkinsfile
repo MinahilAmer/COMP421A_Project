@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        NODE_PATH = 'C:/Program Files/nodejs/node.exe'
+    }
+
     stages {
         stage('Static Code Analysis') {
             steps {
@@ -14,11 +18,7 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                // Define the path to the Node.js executable (node.exe)
-                def nodePath = 'C:\\Program Files\\nodejs\\node.exe'
-
-                // Run the Snyk security scan command
-                bat "\"${nodePath}\" C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test"
+                bat "\"%NODE_PATH%\" C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test"
             }
         }
     }
