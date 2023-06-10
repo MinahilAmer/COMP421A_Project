@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        nodePath = '"C:\\Program Files\\nodejs\\node.exe"'
-        npmPath = '"C:\\Program Files\\nodejs\\npm"'
+        nodePath = 'C:\\PROGRA~1\\nodejs\\NODE_E~1'
+        npmPath = 'C:\\PROGRA~1\\nodejs\\npm.cmd'
     }
 
     stages {
@@ -19,8 +19,8 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                bat "cmd /c ${env.nodePath} ${env.npmPath} install -g snyk"
-                bat "cmd /c ${env.nodePath} ${env.npmPath} snyk test"
+                bat "${env.nodePath} ${env.npmPath} install -g snyk"
+                bat "${env.nodePath} ${env.npmPath} snyk test"
             }
         }
     }
