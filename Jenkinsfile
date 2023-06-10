@@ -20,7 +20,7 @@ pipeline {
         
         stage('Snyk Security Scan') {
             steps {
-                bat 'call "${snykScript}" test'
+                bat "call ${snykScript} test"
             }
         }
     }
