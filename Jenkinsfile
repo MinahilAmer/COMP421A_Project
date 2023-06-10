@@ -13,9 +13,11 @@ pipeline {
         }
         
         stage('Snyk Security Scan') {
-          steps {
-            bat 'node C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test'
-          }
+            steps {
+                // Replace 'nodePath' with the actual Node.js executable path
+                def nodePath = 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Node.js'
+                sh "${nodePath} C:\\Users\\minah\\AppData\\Roaming\\npm\\\\snyk.cmd test"
+            }
         }
     }
 }
