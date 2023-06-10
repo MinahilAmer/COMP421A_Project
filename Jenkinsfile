@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        nodePath = 'C:\\Program Files\\nodejs\\node.exe'
-        npmPath = 'C:\\Program Files\\nodejs\\npm.cmd'
+        nodePath = '"C:\\Program Files\\nodejs\\node.exe"'
+        npmPath = '"C:\\Program Files\\nodejs\\npm.cmd"'
     }
 
     stages {
