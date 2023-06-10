@@ -1,10 +1,14 @@
-stage('Static Code Analysis') {
-    steps {
-        withSonarQubeEnv('SonarQube') {
-            // Configure SonarQube properties
-            def scannerHome = tool 'SonarQubeScanner'
-            withEnv(["SONAR_SCANNER_HOME=$scannerHome"]) {
-                sh '${scannerHome}/bin/sonar-scanner'
+pipeline {
+    agent any
+
+    stages {
+        stage('Static Code Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube Server') {
+                    // Perform your static code analysis steps here
+                    // Example: executing SonarScanner
+                    sh 'sonar-scanner'
+                }
             }
         }
     }
