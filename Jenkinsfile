@@ -13,9 +13,9 @@ pipeline {
         }
         
         stage('Snyk Security Scan') {
-            steps {
-                bat 'node C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test'
-            }
+          steps {
+            bat 'node C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test'
+          }
         }
     }
 }
