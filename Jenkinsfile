@@ -12,12 +12,13 @@ pipeline {
             }
         }
         
-        stage('Synk Security Scanning') {
+        stage('Synk Security Scan') {
             steps {
-                bat 'npx snyk test'
+                bat 'snyk test'
             }
         }
     }
 }
+
 
 
