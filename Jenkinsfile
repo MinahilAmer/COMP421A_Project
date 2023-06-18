@@ -15,7 +15,7 @@ pipeline {
         stage('Snyk Security Scan') {
             steps {
                 script {
-                    bat "\"${env.NODEJS_HOME}\\snyk\" test"
+                    bat "C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk test"
                 }
             }
         }
