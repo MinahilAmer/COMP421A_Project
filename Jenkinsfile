@@ -15,6 +15,7 @@ pipeline {
         stage('Snyk Security Scan') {
             steps {
                 script {
+                    bat "C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk auth"
                     bat "C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk test"
                 }
             }
