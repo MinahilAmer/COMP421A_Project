@@ -14,11 +14,14 @@ pipeline {
 
         stage('Snyk Security Scan') {
             steps {
-                script {
-                    bat "C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk auth"
-                    bat "C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk test"
-                }
+                snykSecurityScan()
             }
         }
+    }
+}
+
+def snykSecurityScan() {
+    withEnv(["PATH+NODEJS=${env.NODEJS_HOME}"]) {
+        bat 'snyk test'
     }
 }
