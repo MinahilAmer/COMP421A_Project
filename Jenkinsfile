@@ -14,14 +14,11 @@ pipeline {
 
         stage('Snyk Security Scan') {
             steps {
-                snykSecurityScan()
+                script {
+                    bat 'snyk auth 4136a6ed-35c5-495c-b2e6-ce33b0e9c092'
+                    bat 'snyk test'
+                }
             }
         }
-    }
-}
-
-def snykSecurityScan() {
-    withEnv(["PATH+NODEJS=${env.NODEJS_HOME}"]) {
-        bat 'snyk test'
     }
 }
