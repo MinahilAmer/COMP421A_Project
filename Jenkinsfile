@@ -6,8 +6,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('jk1') {
                     script {
-                        def scannerHome = tool 'sonar-scanner'
-                        bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=project"
+                        bat 'sonar-scanner -Dsonar.projectKey=project'
                     }
                 }
             }
