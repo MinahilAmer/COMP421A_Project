@@ -14,8 +14,7 @@ pipeline {
 
         stage('Snyk Security Scan') {
             steps {
-                script {
-                    bat 'snyk auth 4136a6ed-35c5-495c-b2e6-ce33b0e9c092'
+                withEnv(["SNYK_TOKEN=cf631823-b723-46a4-9f6e-1d423648fd56"]) {
                     bat 'snyk test'
                 }
             }
