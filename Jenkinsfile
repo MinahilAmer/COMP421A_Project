@@ -14,11 +14,12 @@ pipeline {
 
         stage('Snyk Security Scan') {
             steps {
-                withEnv(["PATH+NODEJS=${tool 'nodejs'}"]) {
-                    bat 'snyk test'
+                script {
+                    bat "${env.NODEJS_HOME}\\snyk test"
                 }
             }
         }
     }
 }
+
 
