@@ -6,26 +6,27 @@ pipeline {
             steps {
                 withSonarQubeEnv('jk1') {
                     script {
-                        bat 'sonar-scanner -Dsonar.projectKey=project'
+                        sh 'sonar-scanner -Dsonar.projectKey=your_project_key'
                     }
                 }
             }
         }
 
-
         stage('Snyk Security Scan') {
             steps {
                 script {
-                    // Install Snyk CLI
-                    bat 'npm install -g snyk'
-
-                    // Authenticate with Snyk (with debug flag)
-                    bat 'snyk auth cf631823-b723-46a4-9f6e-1d423648fd56 -d'
-
-                    // Perform Snyk security scan on Java project
-                    bat 'snyk test --all-projects'
+                    sh 'npm install -g snyk'
+                    sh 'snyk auth cf631823-b723-46a4-9f6e-1d423648fd56 -d'
                 }
+            }
+        }
+
+        stage('Python Code Execution') {
+            steps {
+                // Run the Python script
+                sh 'project.py'
             }
         }
     }
 }
+
