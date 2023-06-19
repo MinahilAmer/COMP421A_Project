@@ -6,7 +6,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('jk1') {
                     script {
-                        bat 'sonar-scanner -Dsonar.projectKey=project -Dsonar.host.url=http://sonarqube-server-url -Dsonar.login=4d5576dd4b0599819c31248cbd0707f152aae8b1'
+                        bat 'sonar-scanner -Dsonar.projectKey=project -Dsonar.host.url=http://localhost:9000/projects -Dsonar.login=4d5576dd4b0599819c31248cbd0707f152aae8b1'
                         echo "SonarQube Analysis Report:"
                         def sonarReport = readFile('.scannerwork/report-task.txt')
                         echo sonarReport
