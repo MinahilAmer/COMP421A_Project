@@ -6,9 +6,10 @@ pipeline {
             steps {
                 withSonarQubeEnv('jk1') {
                     script {
-                        bat 'sonar-scanner -Dsonar.projectKey=project -Dsonar.report.export.path=sonar-report.json'
-                        def sonarReport = readFile('sonar-report.json')
-                        echo "SonarQube Analysis Report:\n${sonarReport}"
+                        bat 'sonar-scanner -Dsonar.projectKey=project -Dsonar.host.url=http://sonarqube-server-url -Dsonar.login=4d5576dd4b0599819c31248cbd0707f152aae8b1'
+                        echo "SonarQube Analysis Report:"
+                        def sonarReport = readFile('.scannerwork/report-task.txt')
+                        echo sonarReport
                     }
                 }
             }
@@ -20,8 +21,9 @@ pipeline {
                     bat 'npm install -g snyk'
                     bat 'snyk auth cf631823-b723-46a4-9f6e-1d423648fd56 -d'
                     bat 'snyk test --all-projects --json > snyk-report.json'
+                    echo "Snyk Security Scan Report:"
                     def snykReport = readFile('snyk-report.json')
-                    echo "Snyk Security Scan Report:\n${snykReport}"
+                    echo snykReport
                 }
             }
         }
@@ -33,4 +35,3 @@ pipeline {
         }
     }
 }
-
