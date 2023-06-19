@@ -23,10 +23,9 @@ pipeline {
 
         stage('Python Code Execution') {
             steps {
-                // Run the Python script
-                sh 'project.py'
+                // Run the Python script in the background
+                sh 'start /B python project.py'
             }
         }
     }
 }
-
