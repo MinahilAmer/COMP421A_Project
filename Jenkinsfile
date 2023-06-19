@@ -8,15 +8,14 @@ pipeline {
                     script {
                         bat 'C:\\Users\\minah\\sonar-scanner-cli-4.8.0.2856-windows\\sonar-scanner-4.8.0.2856-windows\\bin\\sonar-scanner -Dsonar.projectKey=project'
                     }
+                }
             }
         }
 
         stage('Snyk Security Scan') {
             steps {
-                bat 'C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk test'
+                bat 'C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test'
             }
         }
     }
 }
-
-
