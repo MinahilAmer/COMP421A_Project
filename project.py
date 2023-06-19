@@ -40,7 +40,9 @@ def main():
     std_deviation = calculate_standard_deviation(data)
     print("Standard Deviation:", std_deviation)
 
-   
-
 if __name__ == '__main__':
     main()
+
+# Run the test cases
+test_calculate_mean()
+test_calculate_standard_deviation()
