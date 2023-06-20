@@ -5,8 +5,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'pip install -r requirements.txt'
-                    sh 'pip install --upgrade pillow==9.2.0'
+                    bat 'pip install -r requirements.txt'
+                    bat 'pip install --upgrade pillow==9.2.0'
                 }
             }
         }
