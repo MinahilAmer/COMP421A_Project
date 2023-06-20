@@ -4,10 +4,13 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install Pillow==8.3.1 mysql-connector-python==8.0.27'
+                script {
+                    sh 'pip install -r requirements.txt'
+                    sh 'pip install --upgrade pillow==9.2.0'
+                }
             }
         }
-        
+
         stage('Static Code Analysis') {
             steps {
                 withSonarQubeEnv('jk1') {
@@ -20,7 +23,9 @@ pipeline {
 
         stage('Snyk Security Scan') {
             steps {
-                bat 'C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test --all-projects'
+                script {
+                    bat 'C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test --all-projects'
+                }
             }
         }
     }
