@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Install Dependencies') {
+            steps {
+                bat 'python -m pip install Pillow==8.3.1 mysql-connector-python==8.0.27'
+            }
+        }
+        
         stage('Static Code Analysis') {
             steps {
                 withSonarQubeEnv('jk1') {
