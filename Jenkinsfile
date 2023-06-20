@@ -20,12 +20,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Python Code Execution') {
-            steps {
-                // Run the Python script
-                bat 'python bookshopmanagement.py'
-            }
-        }
     }
 }
