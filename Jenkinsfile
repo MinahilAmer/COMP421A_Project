@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     bat 'pip install -r requirements.txt'
-                    bat 'pip install --upgrade pillow==9.2.0'
+                    bat 'pip install --upgrade pillow==9.4.0'
                 }
             }
         }
