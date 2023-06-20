@@ -2,16 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    bat 'pip install -r requirements.txt'
-                    bat 'pip install --upgrade pillow==9.4.0'
-                }
-            }
-        }
-
-        stage('Static Code Analysis') {
+         stage('Static Code Analysis') {
             steps {
                 withSonarQubeEnv('jk1') {
                     script {
@@ -20,6 +11,7 @@ pipeline {
                 }
             }
         }
+
 
         stage('Snyk Security Scan') {
             steps {
