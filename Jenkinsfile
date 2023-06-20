@@ -14,7 +14,7 @@ pipeline {
 
         stage('Snyk Security Scan') {
             steps {
-                bat 'C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test --all-projects'
+                bat 'C:\\Users\\minah\\AppData\\Roaming\\npm\\snyk.cmd test --file="C:\\Users\\minah\\OneDrive\\Desktop\\Login page\\register.py"'
             }
         }
     }
